@@ -59,6 +59,7 @@ body {
 
 section {
     padding: 80px 30px;
+    height: 100vh;
     margin-top: 80px; 
     margin-bottom: 40px;
     border-radius: 8px;
@@ -109,4 +110,15 @@ section:hover {
 #scrollTopBtn:hover {
     background-color: #575757;
     transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    #navbar_list {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    section {
+        padding: 80px 15px;
+    }
 }
