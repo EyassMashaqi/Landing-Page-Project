@@ -112,6 +112,42 @@ section:hover {
     transform: scale(1.1);
 }
 
+
+
+
+.active {
+    border: 3px solid #f8c578; /* Bright border for active sections */
+    box-shadow: 0 4px 15px rgba(224, 167, 9, 0.5);
+    transform: scale(1.02);
+}
+
+
+@media (max-width: 768px) {
+    #navbar {
+        flex-direction: column;
+        height: auto;
+    }
+
+    #navbar_list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    #navbar_list a {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    section {
+        padding: 60px 15px;
+    }
+}
+
+
 @media (max-width: 768px) {
     #navbar_list {
         flex-wrap: wrap;

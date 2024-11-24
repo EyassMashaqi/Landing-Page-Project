@@ -12,10 +12,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Highlight active section and navigation link
     window.addEventListener('scroll', () => {
+        let activeSection = null;
+
         sections.forEach((section) => {
             const rect = section.getBoundingClientRect();
             const navItem = document.querySelector(`a[href="#${section.id}"]`);
-            if (rect.top >= 0 && rect.top <= 300) {
+            const viewportHeight = window.innerHeight;
+            const threshold = viewportHeight <= 768 ? 0.5 : 0.3;
+
+            if (rect.top >= 0 && rect.top <= viewportHeight * threshold) {
+                activeSection = section;
                 section.classList.add('active');
                 navItem.classList.add('active');
             } else {
@@ -23,6 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 navItem.classList.remove('active');
             }
         });
+
+        // Prevent multiple sections from being active simultaneously
+        if (!activeSection) {
+            sections.forEach((section) => section.classList.remove('active'));
+        }
 
         // Toggle scroll-to-top button visibility
         scrollbtn.style.display = window.scrollY > 200 ? 'block' : 'none';
